@@ -43,6 +43,11 @@ void printList(List *l) {
 	printf("\n");
 }
 
+/**
+ * Creates new entry with given value to end of a given list.
+ * @param l The list you want to add to.
+ * @param new_val Value of new entry added to end of list.
+ */
 void addToEnd(List *l, int new_val) {
 	List *new_entry = calloc(1, sizeof(List));
 	// TODO: set entry's value
@@ -57,6 +62,10 @@ void addToEnd(List *l, int new_val) {
 	// TODO:  update list so that new_entry is the last entry now
 }
 
+/**
+ * Remove's entry from end of a given list.
+ * @param l The list you want to remove from.
+ */
 void removeFromEnd(List *l) {
 	List *last_entry = l;
 	List *next_to_last_entry = l;
@@ -66,8 +75,10 @@ void removeFromEnd(List *l) {
 		last_entry = last_entry->next;
 	}
 
+	printList(last_entry);
+
 	// set next_to_last_entry to correct entry
-	while (next_to_last_entry->next != NULL) {
+	while (next_to_last_entry->next != last_entry) {
 		next_to_last_entry = next_to_last_entry->next;
 	}
 
